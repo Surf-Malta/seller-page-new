@@ -45,12 +45,12 @@ const Footer = () => {
               <li><Link href="/solution-integrations" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Integrations</Link></li>
               <li><Link href="/solution-analytics" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Analytics & Insights</Link></li>
               <li><Link href="/solution-promotions" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Promotions</Link></li>
-              <li><Link href="/solution-seller-plus" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Surf+ for Sellers</Link></li>
+              {/* <li><Link href="/solution-seller-plus" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Surf+ for Sellers</Link></li> */}
             </ul>
           </div>
 
           {/* Business Column */}
-          <div className="flex flex-col gap-4">
+          {/* <div className="flex flex-col gap-4">
             <h4 className="text-white/45 text-[0.72rem] font-semibold tracking-[1.5px] uppercase">Business type</h4>
             <ul className="list-none flex flex-col gap-2.5">
               <li><Link href="/business-retailers" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Retailers</Link></li>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li><Link href="/business-fashion" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Fashion & Apparel</Link></li>
               <li><Link href="/business-electronics" className="text-white/65 hover:text-white text-sm no-underline transition-colors">Electronics</Link></li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Company Column */}
           <div className="flex flex-col gap-4">

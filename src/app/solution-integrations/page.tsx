@@ -55,7 +55,7 @@ export default function SolutionIntegrationsPage() {
       />
 
       {/* PARTNER LOGOS */}
-      <section className="py-20 px-8 bg-white">
+      <section className="py-8 md:py-20 px-8 bg-white">
         <div className="max-w-[1280px] mx-auto">
           <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-4">
             Surf integration partners
@@ -79,7 +79,7 @@ export default function SolutionIntegrationsPage() {
       </section>
 
       {/* WAYS TO CONNECT */}
-      <section className="py-20 px-8 bg-grey">
+      <section className="py-8 md:py-20 px-8 bg-grey">
         <div className="max-w-[1280px] mx-auto">
           <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12">
             Different ways to connect your business with Surf
@@ -124,7 +124,7 @@ export default function SolutionIntegrationsPage() {
       </SplitSection>
 
       {/* NOT A PARTNER YET */}
-      <section className="py-20 px-8 bg-grey">
+      <section className="py-8 md:py-20 px-8 bg-grey">
         <div className="max-w-[1280px] mx-auto">
           <div className="bg-grey rounded-[24px] p-[56px_48px] flex flex-col md:flex-row items-center justify-between gap-8 group">
             <div>

@@ -10,6 +10,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Sell More, Keep More | Surf for Sellers",
   description: "Join Surf and sell to customers already shopping in your area — with the lowest commission rates on the market.",
+  icons: {
+    icon: "/assets/logo.png",
+    apple: "/assets/logo.png",
+  },
+  openGraph: {
+    title: "Sell More, Keep More | Surf for Sellers",
+    description: "Join Surf and sell to customers already shopping in your area — with the lowest commission rates on the market.",
+    images: [{ url: '/assets/youngBusiness.jpg' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/assets/youngBusiness.jpg'],
+  },
 };
 
 export default function RootLayout({

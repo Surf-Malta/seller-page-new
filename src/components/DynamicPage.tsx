@@ -51,7 +51,7 @@ const DynamicPage: React.FC<DynamicPageProps> = ({ data }) => {
             );
           case "steps":
             return (
-              <section key={idx} className={`py-20 px-6 md:px-8 ${section.theme === "grey" ? "bg-grey" : "bg-white"}`}>
+              <section key={idx} className={`py-8 md:py-20 px-6 md:px-8 ${section.theme === "grey" ? "bg-grey" : "bg-white"}`}>
                 <div className="max-w-[1280px] mx-auto">
                   <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${section.reverse ? "rtl" : ""}`}>
                     <div className="ltr">
@@ -91,7 +91,7 @@ const DynamicPage: React.FC<DynamicPageProps> = ({ data }) => {
             );
           case "cta":
             return (
-               <section key={idx} className={`py-20 px-6 md:px-8 ${section.theme === "grey" ? "bg-grey" : "bg-white"}`}>
+               <section key={idx} className={`py-8 md:py-20 px-6 md:px-8 ${section.theme === "grey" ? "bg-grey" : "bg-white"}`}>
                 <div className="max-w-[1280px] mx-auto">
                   <div className="bg-grey rounded-3xl p-12 flex flex-col md:flex-row items-center justify-between gap-8 reveal visible">
                     <div>

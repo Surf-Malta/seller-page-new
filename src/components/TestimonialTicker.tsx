@@ -163,14 +163,14 @@ const TestimonialTicker: React.FC<TestimonialTickerProps> = ({ items = defaultIt
   const displayItems = [...items, ...items, ...items];
 
   return (
-    <section className="py-20 bg-white overflow-hidden relative">
+    <section className="py-8 md:py-20 bg-white overflow-hidden relative">
       {title && (
         <div className="max-w-[1280px] mx-auto px-8 mb-12 text-center">
           <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black">
             {title}
           </h2>
           {subtitle && (
-            <p className="mt-4 text-text-2 text-sm max-w-[600px] mx-auto">
+            <p className="mt-4 text-text-2 text-[1.1rem] max-w-[600px] mx-auto">
               {subtitle}
             </p>
           )}
@@ -188,7 +188,7 @@ const TestimonialTicker: React.FC<TestimonialTickerProps> = ({ items = defaultIt
             <Link
               key={`${item.caption}-${idx}`}
               href={item.href || "#"}
-              className="group relative flex-shrink-0 w-55 h-55 rounded-2xl overflow-hidden no-underline"
+              className="group relative flex-shrink-0 w-44 h-44 rounded-2xl overflow-hidden no-underline"
             >
               <img
                 src={item.image}
@@ -196,9 +196,9 @@ const TestimonialTicker: React.FC<TestimonialTickerProps> = ({ items = defaultIt
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 flex items-end">
-                <span className="text-white text-[0.875rem] font-bold leading-[1.35] line-clamp-2">
+                {/* <span className="text-white text-[0.875rem] font-bold leading-[1.35] line-clamp-2">
                   {item.caption}
-                </span>
+                </span> */}
               </div>
             </Link>
           ))}

@@ -40,7 +40,7 @@ const SplitSection: React.FC<SplitSectionProps> = ({
   const textClasses = ["dark", "brand"].includes(theme) ? "text-white/80" : "text-text-2";
 
   return (
-    <section className={`py-20 px-6 md:px-8 overflow-hidden transition-colors ${themeClasses[theme]}`}>
+    <section className={`py-8 md:py-20 px-6 md:px-8 overflow-hidden transition-colors ${themeClasses[theme]}`}>
       <div className="max-w-[1280px] mx-auto" ref={ref}>
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${reverse ? "lg:[direction:rtl]" : ""}`}>
           {/* Image */}
@@ -48,9 +48,13 @@ const SplitSection: React.FC<SplitSectionProps> = ({
             initial={{ opacity: 0, x: reverse ? 40 : -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className={`[direction:ltr] relative aspect-[4/3] rounded-3xl overflow-hidden`}
+            className={`[direction:ltr] relative flex items-center justify-center h-[340px] md:h-[440px]`}
           >
-            <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+            <img 
+              src={image} 
+              alt={title} 
+              className="max-w-full max-h-full w-auto h-auto rounded-[40px] shadow-2xl border border-black/5 block" 
+            />
           </motion.div>
 
           {/* Text */}

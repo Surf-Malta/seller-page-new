@@ -72,7 +72,7 @@ export default function BusinessRetailersPage() {
       />
 
       {/* CTA */}
-      <section className="py-20 px-8 bg-seller-gradient">
+      <section className="py-8 md:py-20 px-8 bg-seller-gradient">
         <div className="max-w-[1280px] mx-auto">
           <div className="rounded-[24px] p-[56px_48px] flex flex-col md:flex-row items-center justify-between gap-8 group">
             <div>
@@ -94,7 +94,7 @@ export default function BusinessRetailersPage() {
       </section>
 
       {/* ADDITIONAL SOLUTIONS */}
-      <section className="py-20 px-8 bg-grey">
+      <section className="py-8 md:py-20 px-8 bg-grey">
         <div className="max-w-[1280px] mx-auto">
           <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12">
             Advanced solutions for retail sellers

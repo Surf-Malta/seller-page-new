@@ -23,11 +23,11 @@ const FAQ: React.FC<FAQProps> = ({ title = "Frequently asked questions", items, 
   };
 
   return (
-    <section className={`py-20 px-6 md:px-8 ${theme === "grey" ? "bg-grey" : "bg-white"}`}>
+    <section className={`py-8 md:py-20 px-6 md:px-8 ${theme === "grey" ? "bg-grey" : "bg-white"}`}>
       <div className="max-w-[1280px] mx-auto">
-        <div className="max-w-[800px]">
+        <div className="max-w-[800px] mx-auto">
         {title && (
-          <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12">
+          <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12 text-center">
             {title}
           </h2>
         )}

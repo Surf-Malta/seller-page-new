@@ -31,7 +31,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, features, columns = 3,
   };
 
   return (
-    <section className={`py-20 px-6 md:px-8 overflow-hidden ${theme === "grey" ? "bg-grey" : "bg-white"}`}>
+    <section className={`py-8 md:py-20 px-6 md:px-8 overflow-hidden ${theme === "grey" ? "bg-grey" : "bg-white"}`}>
       <div className="max-w-[1280px] mx-auto" ref={ref}>
         {title && (
           <motion.h2
