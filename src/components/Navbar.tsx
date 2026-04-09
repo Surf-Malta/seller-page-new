@@ -41,9 +41,8 @@ const Navbar = () => {
       id: "products",
       label: "Products",
       items: [
-        { label: "Home", href: "/" },
+        //{ label: "Home", href: "/" },
         { label: "Surf shopping App", href: "/product-surf-app" },
-        { label: "Fulfillment by seller", href: "/product-self-delivery" },
         { label: "Surf Seller hub", href: "/product-storefront" },
       ],
     },
@@ -52,8 +51,9 @@ const Navbar = () => {
       label: "Solutions",
       items: [
         { label: "Plug & Sell", href: "/solution-integrations" },
-        { label: "Analytics & Insights", href: "/solution-analytics" },
-        { label: "Promotions", href: "/solution-promotions" },
+        //{ label: "Analytics & Insights", href: "/solution-analytics" },
+        //{ label: "Promotions", href: "/solution-promotions" },
+        { label: "Fulfillment by seller", href: "/product-self-delivery" },
         //{ label: "Surf+ for Sellers", href: "/solution-seller-plus" },
       ],
     },

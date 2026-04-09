@@ -21,7 +21,7 @@ export default function SolutionIntegrationsPage() {
       <Hero
         title="Plug and sell"
         description="Connect your existing website with Surf in a few clicks and everything comes with it; products, images, descriptions, prices, and stock levels synced instantly. No manual uploads, no starting from scratch, no tech team needed."
-        image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1800&auto=format&fit=crop&q=80"
+        image="/assets/plugAndSell.png"
         ctaText="Get started"
       />
 
@@ -137,7 +137,7 @@ export default function SolutionIntegrationsPage() {
             </div>
             <Link
               href="#"
-              className="px-[28px] py-[12px] rounded-full bg-black text-white text-base font-bold no-underline hover:-translate-y-0.5 transition-all"
+              className="px-[28px] py-[12px] rounded-full border-none bg-brand text-sm font-semibold text-white hover:bg-brand-d transition-all no-underline inline-flex items-center cursor-pointer"
             >
               Get started
             </Link>

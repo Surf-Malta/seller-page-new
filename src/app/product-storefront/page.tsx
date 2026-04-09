@@ -16,12 +16,12 @@ export default function ProductStorefrontPage() {
       <Hero
         title="Your entire business, in your pocket."
         description="Accept orders instantly, monitor your sales, and update your listings. right from your phone."
-        image="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1800&auto=format&fit=crop&q=80"
+        image="/assets/surfsellerBanner.png"
         ctaText="Sign up"
       />
 
       {/* WHY CHOOSE */}
-      <FeatureGrid
+      {/* <FeatureGrid
         theme="grey"
         title="Why sellers choose Surf Storefront"
         features={[
@@ -47,7 +47,7 @@ export default function ProductStorefrontPage() {
           }
         ]}
         columns={4}
-      />
+      /> */}
 
       {/* HOW STOREFRONT WORKS */}
       <SplitSection
@@ -59,33 +59,36 @@ export default function ProductStorefrontPage() {
             Already have a website? Connect it through the Surf admin backend on your laptop, sync your entire product catalogue at once, and manage everything going forward, right from the app.
           </>
         }
-        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80"
+        image="/assets/howSellerAppWorks.png"
         ctaText="Sign up →"
       />
 
-      {/* ONE SYSTEM */}
-      <SplitSection
+      <FeatureGrid
         theme="grey"
-        reverse
         title="What you get with Surf seller hub"
-        description={
-          <>
-            <b>Never miss an order or a low stock alert </b><br></br>
-            Get notified the moment a new order comes in — accept it, manage it, and update its status directly from the app. Receive automatic low stock alerts so you're never caught off guard.
-            <br></br><br></br>
-            <b>Add new products in seconds — right from your phone</b> <br></br>
-            Got a new product in store? List it instantly. Take a photo on the spot or choose from your gallery, add the product name, description, price, and stock level, and it's live on Surf in a few taps.
-            <br></br><br></br>
-            <b>Multiple users. One store. Full control.</b> <br></br>
-            Give your team access to the Seller Hub app.
-            Your sales staff in the store can see incoming orders, pack them, and mark them as ready, all from their own device. You stay in control while your team handles the ground work.
-            <br></br><br></br>
-            <b>Track sales and get smart insights</b> <br></br>
-            Monitor your revenue, top-selling products and much more. Use the built-in Seller AI assistant to get instant answers- ask which products are selling fastest, where your orders are coming from, and what to restock next.
-          </>
-        }
-        image="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&auto=format&fit=crop&q=80"
-        ctaText="Sign up →"
+        features={[
+          {
+            title: "Never miss an order or a low stock alert",
+            description: "Get notified the moment a new order comes in — accept it, manage it, and update its status directly from the app. Receive automatic low stock alerts so you're never caught off guard.",
+            icon: <Home className="w-7 h-7" />
+          },
+          {
+            title: "Add new products in seconds — right from your phone",
+            description: "Got a new product in store? List it instantly. Take a photo on the spot or choose from your gallery, add the product name, description, price, and stock level, and it's live on Surf in a few taps.",
+            icon: <Star className="w-7 h-7" />
+          },
+          {
+            title: "Multiple users. One store. Full control.",
+            description: "Give your team access to the Seller Hub app. Your sales staff in the store can see incoming orders, pack them, and mark them as ready, all from their own device. You stay in control while your team handles the ground work.",
+            icon: <Users className="w-7 h-7" />
+          },
+          {
+            title: "Track sales and get smart insights",
+            description: "Monitor your revenue, top-selling products and much more. Use the built-in Seller AI assistant to get instant answers- ask which products are selling fastest, where your orders are coming from, and what to restock next.",
+            icon: <Clock className="w-7 h-7" />
+          }
+        ]}
+        columns={4}
       />
 
       {/* WHAT YOU GET */}
