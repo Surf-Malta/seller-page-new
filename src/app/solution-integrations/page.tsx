@@ -79,7 +79,7 @@ export default function SolutionIntegrationsPage() {
       </section> */}
 
       {/* WAYS TO CONNECT */}
-      <section className="py-8 md:py-20 px-8 bg-grey">
+      {/* <section className="py-8 md:py-20 px-8 bg-grey">
         <div className="max-w-[1280px] mx-auto">
           <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12">
             Different ways to connect your business with Surf
@@ -111,16 +111,17 @@ export default function SolutionIntegrationsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* API */}
       <SplitSection
-        title="Build an integration with the Surf API"
-        image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop&q=80"
-        ctaText="See documentation →"
+        title="Your platform. Our local shopping App."
+        image="/assets/yourPlatform.png"
+        ctaText="Start for free"
       >
-        <p className="text-lg text-text-2 leading-[1.7]">Use the power of Surf for your business with our self-serve integration portal and suite of developer tools to manage catalogue, store, and order data.</p>
-        <p className="text-lg text-text-2 leading-[1.7]">Access API documentation, SDKs, step-by-step tutorials, and technical support to integrate Surf APIs with your operations in just a few lines of code.</p>
+        <p className="text-lg text-text-2 leading-[1.7]">Already have a store on WooCommerce, Shopify? Our Plug & Sell feature, built with our website partners, gets your products live on Surf's local shopping app in minutes.</p>
+        <p className="text-lg text-text-2 leading-[1.7]">Your images, descriptions, prices, and stock levels synced automatically.
+          No rebuilding. No manual uploads. No changes to your existing website.</p>
       </SplitSection>
 
       {/* NOT A PARTNER YET */}
@@ -148,16 +149,16 @@ export default function SolutionIntegrationsPage() {
       <FAQ
         items={[
           {
-            question: "How do I get Surf orders on my POS system?",
-            answer: "If your POS or platform is listed on our integrations page, you can get started directly. If not, contact our seller team to request an integration or explore our API documentation."
+            question: "Can I connect my website by myself?",
+            answer: "Yes. From your Seller Admin Panel, head to the Integrations page, select your platform, and follow the simple steps to connect. Or schedule a quick call with our team and we'll help you get connected straight away."
           },
           {
-            question: "How long does it take to integrate?",
-            answer: "If Surf already has an integration for your system, you can expect to be onboarded within 1–2 weeks. New integrations vary depending on technical resources."
+            question: "What if my website platform isn't listed?",
+            answer: "Get in touch with our seller support team via WhatsApp or email and we'll look into adding your platform. You can also upload your product catalogue manually through the Seller Panel while we work on the integration."
           },
           {
-            question: "Can I integrate with Surf directly?",
-            answer: "Yes. Visit Surf for Developers to access our API documentation, SDKs, and support for building your own integration."
+            question: "Can I choose which products or categories to sync?",
+            answer: "Yes. You have full control over what gets listed on Surf. Select specific products, entire categories, or your full catalogue."
           }
         ]}
       />
