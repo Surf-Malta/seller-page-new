@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -6,8 +7,11 @@ import FeatureGrid from "@/components/FeatureGrid";
 import SplitSection from "@/components/SplitSection";
 import { Monitor, Zap, Shield } from "lucide-react";
 import Link from "next/link";
+import SignupModal from "@/components/registration/SignupModal";
 
 export default function BusinessElectronicsPage() {
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen pt-[72px]">
       <Navbar />
@@ -19,6 +23,7 @@ export default function BusinessElectronicsPage() {
         description="Reach tech-savvy buyers who want their purchases fast. From gadgets to appliances — Surf supports your full catalogue."
         image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1000&auto=format&fit=crop&q=80"
         ctaText="Get started"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       />
 
       {/* Why electronics sellers choose Surf */}
@@ -51,6 +56,7 @@ export default function BusinessElectronicsPage() {
         image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80"
         ctaText="See integrations →"
         ctaHref="/solution-integrations"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       />
 
       {/* CTA */}
@@ -65,17 +71,21 @@ export default function BusinessElectronicsPage() {
                 Be live in 48 hours with your full catalogue.
               </p>
             </div>
-            <Link
-              href="#"
-              className="px-[28px] py-[12px] rounded-full bg-black text-white text-base font-bold no-underline hover:-translate-y-0.5 transition-all"
+            <button
+              onClick={() => setIsSignupModalOpen(true)}
+              className="px-[28px] py-[12px] rounded-full bg-black text-white text-base font-bold no-underline hover:-translate-y-0.5 transition-all cursor-pointer border-none"
             >
               Get started
-            </Link>
+            </button>
           </div>
         </div>
       </section>
 
       <Footer />
+
+      {isSignupModalOpen && (
+        <SignupModal onClose={() => setIsSignupModalOpen(false)} />
+      )}
     </main>
   );
 }

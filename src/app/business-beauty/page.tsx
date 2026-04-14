@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -6,8 +7,11 @@ import FeatureGrid from "@/components/FeatureGrid";
 import SplitSection from "@/components/SplitSection";
 import { Star, Globe, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
+import SignupModal from "@/components/registration/SignupModal";
 
 export default function BusinessBeautyPage() {
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen pt-[72px]">
       <Navbar />
@@ -19,6 +23,7 @@ export default function BusinessBeautyPage() {
         description="Join thousands of beauty sellers on Surf — reach customers who are already searching for products like yours."
         image="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1000&auto=format&fit=crop&q=80"
         ctaText="Get started"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       />
 
       {/* Why beauty brands choose Surf */}
@@ -50,6 +55,7 @@ export default function BusinessBeautyPage() {
         description="Launch your branded Storefront in days, connect your existing Shopify or WooCommerce store in minutes, and start selling to customers already in the Surf app. We handle payments, support, and delivery logistics."
         image="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&auto=format&fit=crop&q=80"
         ctaText="Get started →"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       />
 
       {/* CTA */}
@@ -64,17 +70,21 @@ export default function BusinessBeautyPage() {
                 Join thousands of beauty brands already growing on Surf.
               </p>
             </div>
-            <Link
-              href="#"
-              className="px-[28px] py-[12px] rounded-full bg-black text-white text-base font-bold no-underline hover:-translate-y-0.5 transition-all"
+            <button
+              onClick={() => setIsSignupModalOpen(true)}
+              className="px-[28px] py-[12px] rounded-full bg-black text-white text-base font-bold no-underline hover:-translate-y-0.5 transition-all cursor-pointer border-none"
             >
               Get started
-            </Link>
+            </button>
           </div>
         </div>
       </section>
 
       <Footer />
+
+      {isSignupModalOpen && (
+        <SignupModal onClose={() => setIsSignupModalOpen(false)} />
+      )}
     </main>
   );
 }
