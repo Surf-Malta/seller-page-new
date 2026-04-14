@@ -21,7 +21,7 @@ export default function ProductSurfAppPage() {
       <Hero
         title="Grow your online sales with the Surf Shopping App"
         description="List your products and start selling today."
-        image="/assets/surfCustApp.jpg"
+        image="/assets/surfCustApp.png"
         ctaText="Get started"
         onCtaClick={() => setIsSignupModalOpen(true)}
       />
@@ -52,9 +52,15 @@ export default function ProductSurfAppPage() {
       {/* HOW IT WORKS */}
       <SplitSection
         title="Plug in and start selling"
-        description="Once registered as a seller ,connect your existing website and sync all products at once or upload your product catalogue directly to your Seller Panel. 
-Control your prices, stock levels, and images and you're ready to go. 
-No tech expertise needed. Our seller support team is on hand to help you get set up via demo call."
+        description={
+          <>
+            Once registered as a seller, connect your existing website and sync all products at once or upload your product catalogue directly to your Seller Panel.
+            Control your prices, stock levels, and images and you're ready to go.
+            No tech expertise needed.
+            <br></br>
+            Our seller support team can help you set up via demo call.
+          </>
+        }
         image="/assets/howItWorks.png"
       //ctaText="Get started →"
       />
@@ -64,7 +70,7 @@ No tech expertise needed. Our seller support team is on hand to help you get set
         theme="grey"
         reverse
         title="Your products go live"
-        description="Once our team reviews your listings for description quality, image standards, and stock accuracy, your products are approved and live on the Surf app- visible to thousands of shoppers across Malta, ready to buy."
+        description="Once our team reviews your listings for description quality, image standards, and stock availability, your products are approved and live on the Surf app- visible to thousands of shoppers across Malta, ready to buy."
         image="/assets/goLive.png"
       //ctaText="Learn about Surf+ →"
       //ctaHref="/solution-seller-plus"
@@ -73,16 +79,15 @@ No tech expertise needed. Our seller support team is on hand to help you get set
       {/* PICKUP */}
       <SplitSection
         title="Accept orders and grow your business"
-        description="When a customer places an order, you get notified instantly on the Seller Hub app. Accept it, pack it, and hand it over to your own courier, collect the delivery fee through Surf or our logistics partner picks it up directly from your store and handles the rest.
-Now you can focus on growing your business."
+        description="When a customer places an order, you get notified instantly on the Seller Hub app. Accept it, pack it, and hand it over to your own courier, collect the delivery fee through Surf or our logistics partner picks it up directly from your store and handles the rest."
         image="/assets/surfAccept.png"
       //ctaText="Get started →"
       />
 
       {/* SIGN UP CTA */}
-      <section className="py-8 md:py-20 px-8 bg-seller-gradient">
+      <section className="py-4 md:py-10 px-4 md:px-8 bg-brand">
         <div className="max-w-[1280px] mx-auto">
-          <div className="p-[56px_48px] flex flex-col md:flex-row items-center justify-between gap-8 group">
+          <div className="p-[20px_20px] md:p-[28px_48px] rounded-[32px] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group">
             <div>
               <h2 className="text-[clamp(1.4rem,2.5vw,2.2rem)] font-extrabold tracking-[-0.6px] text-white">
                 Getting started is easy. Sign up today

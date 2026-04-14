@@ -36,7 +36,7 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
         email: false,
         whatsapp: false,
     });
-    
+
     const [verified, setVerified] = useState({
         email: false,
         whatsapp: false,
@@ -120,7 +120,7 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
 
             await set(newSellerRef, sellerData);
             setIsSuccess(true);
-            
+
             // Optional: close modal after delay or show success message
             setTimeout(() => {
                 onClose();
@@ -137,10 +137,10 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
     if (isSuccess) {
         return (
             <div className="fixed inset-0 z-[9999] bg-black/40 flex items-start sm:items-center justify-center p-4 overflow-y-auto backdrop-blur-sm">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-white w-full max-w-xl rounded-2xl py-16 px-12 relative shadow-2xl text-center my-auto"
+                    className="bg-white w-full max-w-xl rounded-2xl py-12 px-6 sm:px-12 relative shadow-2xl text-center my-auto"
                 >
                     <div className="flex justify-center mb-6">
                         <CheckCircle size={80} className="text-green-500" />
@@ -149,9 +149,9 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
                         Registration Successful!
                     </h2>
                     <p className="text-[var(--text-muted)] text-lg">
-                        Thank you for joining Surf. Your account is now pending approval.
+                        Thank you for joining Surf. Our team will contact you shortly.
                     </p>
-                    <button 
+                    <button
                         onClick={onClose}
                         className="mt-8 px-8 py-3 bg-[var(--primary)] text-white rounded-lg font-medium"
                     >
@@ -164,10 +164,10 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
 
     return (
         <div className="fixed inset-0 z-[9999] bg-black/40 flex items-start sm:items-center justify-center p-4 overflow-y-auto backdrop-blur-sm">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white w-full max-w-xl min-h-[500px] rounded-2xl py-12 px-12 relative shadow-2xl my-auto"
+                className="bg-white w-full max-w-xl min-h-[500px] rounded-2xl py-10 px-6 sm:px-12 relative shadow-2xl my-auto"
             >
 
                 {/* Close */}
@@ -179,14 +179,14 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
                 </button>
 
                 {/* Title */}
-                <h2 className="text-3xl font-bold text-center px-12 pb-3 text-[var(--heading-color)]">
-                    Sign up and grow your business with Surf🚀
+                <h2 className="text-2xl sm:text-3xl font-bold text-center px-4 sm:px-12 pb-3 text-[var(--heading-color)]">
+                    Sign up and grow your business with Surf
                 </h2>
 
                 <div className="flex items-center justify-between pb-5">
 
                     {/* Left (fixed width) */}
-                    <div className="w-[80px]">
+                    <div className="w-[60px] sm:w-[80px]">
                         {step === 2 && (
                             <button
                                 onClick={() => setStep(1)}
@@ -209,7 +209,7 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
                     </div>
 
                     {/* Right (same width as left) */}
-                    <div className="w-[80px]" />
+                    <div className="w-[60px] sm:w-[80px]" />
                 </div>
 
                 {step === 1 && (

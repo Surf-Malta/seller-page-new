@@ -38,7 +38,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, features, columns = 3,
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12"
+            className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12 text-center"
           >
             {title}
           </motion.h2>
@@ -51,9 +51,9 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, features, columns = 3,
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="flex flex-col gap-3.5"
+              className="flex flex-col gap-3.5 items-center justify-center"
             >
-              <div className="w-14 h-14 rounded-[16px] overflow-hidden flex-shrink-0 bg-grey flex items-center justify-center">
+              <div className="w-16 h-16 rounded-[20px] overflow-hidden flex-shrink-0 bg-grey flex items-center justify-center">
                 {feature.iconImg ? (
                   <img src={feature.iconImg} alt="" className="w-full h-full object-cover" />
                 ) : (
@@ -62,10 +62,10 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, features, columns = 3,
                   </div>
                 )}
               </div>
-              <h3 className="text-[1.2rem] font-bold tracking-[-0.2px] text-black leading-[1.3]">
+              <h3 className="text-[1.2rem] font-bold tracking-[-0.2px] text-black leading-[1.3] text-center">
                 {feature.title}
               </h3>
-              <p className="text-[0.95rem] text-text-2 leading-[1.6]">
+              <p className="text-[0.95rem] text-text-2 leading-[1.6] text-center">
                 {feature.description}
               </p>
               {feature.href && (

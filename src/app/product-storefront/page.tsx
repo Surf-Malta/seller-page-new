@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -7,8 +9,10 @@ import SplitSection from "@/components/SplitSection";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import { Home, Star, Users, Clock, Heart, Shield, Monitor } from "lucide-react";
+import SignupModal from "@/components/registration/SignupModal";
 
 export default function ProductStorefrontPage() {
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   return (
     <main className="min-h-screen pt-[72px]">
       <Navbar />
@@ -18,6 +22,7 @@ export default function ProductStorefrontPage() {
         description="Accept orders instantly, monitor your sales, and update your listings. right from your phone."
         image="/assets/surfsellerBanner.png"
         ctaText="Sign up"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       />
 
       {/* WHY CHOOSE */}
@@ -61,6 +66,7 @@ export default function ProductStorefrontPage() {
         }
         image="/assets/howSellerAppWorks.png"
         ctaText="Sign up →"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       />
 
       <FeatureGrid
@@ -73,7 +79,7 @@ export default function ProductStorefrontPage() {
             icon: <Home className="w-7 h-7" />
           },
           {
-            title: "Add new products in seconds — right from your phone",
+            title: "Add new products in seconds, right from your phone",
             description: "Got a new product in store? List it instantly. Take a photo on the spot or choose from your gallery, add the product name, description, price, and stock level, and it's live on Surf in a few taps.",
             icon: <Star className="w-7 h-7" />
           },
@@ -119,11 +125,11 @@ export default function ProductStorefrontPage() {
         columns={4}
       /> */}
 
-      <section className="py-8 md:py-20 px-8 bg-grey">
+      <section className="py-4 md:py-10 px-4 md:px-8 bg-grey">
         <div className="max-w-[1280px] mx-auto">
-          <div className="bg-grey p-[56px_48px] flex flex-col md:flex-row items-center justify-between gap-8 group">
+          <div className="bg-grey p-[20px_20px] md:p-[56px_48px] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group">
             <div>
-              <h2 className="text-[clamp(1.4rem,2.5vw,2.2rem)] font-extrabold tracking-[-0.6px] text-black">
+              <h2 className="text-[clamp(1.4rem,2.5vw,2.2rem)] font-extrabold tracking-[-0.6px] text-black text-left md:text-center">
                 Getting started is easy
               </h2>
               <p className="text-[1.05rem] text-text-2 mt-2 leading-[1.5]">
@@ -131,7 +137,8 @@ export default function ProductStorefrontPage() {
               </p>
             </div>
             <Link
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.surf.sellerhub"
+              target="/blank"
               className="px-[28px] py-[12px] rounded-full bg-black text-white text-base font-bold no-underline hover:-translate-y-0.5 transition-all"
             >
               Download the app
@@ -142,10 +149,6 @@ export default function ProductStorefrontPage() {
 
       <FAQ
         items={[
-          {
-            question: "How do I start with Storefront?",
-            answer: "Sign up via the form. Getting started only takes a few days. We'll guide you through connecting your existing store or setting up your product catalogue."
-          },
           {
             question: "Who handles customer support for Storefront orders?",
             answer: "Surf takes care of all end-customer support for your Storefront orders, including inquiries, refunds, and technical issues. You focus on running your business."
@@ -162,6 +165,10 @@ export default function ProductStorefrontPage() {
       />
 
       <Footer />
+
+      {isSignupModalOpen && (
+        <SignupModal onClose={() => setIsSignupModalOpen(false)} />
+      )}
     </main>
   );
 }

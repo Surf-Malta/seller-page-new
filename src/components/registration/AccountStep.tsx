@@ -138,7 +138,7 @@ export default function AccountStep({
         <div className="space-y-4">
 
             {/* First + Last */}
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
                 <input
                     placeholder="First name"
                     className="flex-1 p-3 rounded-lg border border-[var(--border-muted)] outline-none focus:border-black"
@@ -159,7 +159,7 @@ export default function AccountStep({
 
             {/* Email */}
             <div>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                     <input
                         placeholder="Email address"
                         type="email"
@@ -171,23 +171,20 @@ export default function AccountStep({
                     />
                     {
                         verified.email ? (
-                            <span className="px-4 flex items-center text-green-600 text-sm font-medium">
+                            <div className="flex items-center px-4 py-2 text-green-600 text-sm font-medium">
                                 Verified
-                            </span>
-
-                        ) :
-                            (
+                            </div>
+                        ) : (
                                 <button
                                     type="button"
                                     onClick={handleSendEmail}
                                     disabled={loading.email}
-                                    className={`cursor-pointer px-6 bg-[var(--primary)] text-white rounded-lg transition-opacity ${loading.email ? 'opacity-50' : ''}`}
+                                    className={`cursor-pointer w-full sm:w-auto px-4 sm:px-6 py-3 bg-[var(--primary)] text-white rounded-lg transition-opacity ${loading.email ? 'opacity-50' : ''}`}
                                 >
                                     {loading.email ? "Sending..." : "Verify"}
                                 </button>
                             )
                     }
-
                 </div>
 
                 {showOtp.email && !verified.email && (
@@ -202,68 +199,68 @@ export default function AccountStep({
 
             {/* WhatsApp */}
             <div>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
+                    <div className="flex gap-2 flex-1">
+                        {/* Country */}
+                        <div className="relative w-[90px] sm:w-[110px]">
+                            <button
+                                type="button"
+                                onClick={() => setCountryOpen(!countryOpen)}
+                                className="w-full h-[50px] px-2 border border-[var(--border-muted)] outline-none focus:border-black rounded-lg flex justify-between items-center bg-white"
+                            >
+                                <span className="text-[10px] sm:text-xs">{selectedCountry.name}</span>
+                                <span className="text-sm font-medium">{selectedCountry.code}</span>
+                                {countryOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                            </button>
 
-                    {/* Country */}
-                    <div className="relative w-[110px]">
-                        <button
-                            type="button"
-                            onClick={() => setCountryOpen(!countryOpen)}
-                            className="w-full h-[50px] px-2 border border-[var(--border-muted)] outline-none focus:border-black rounded-lg flex justify-between items-center bg-white"
-                        >
-                            <span className="text-xs">{selectedCountry.name}</span>
-                            <span className="text-sm font-medium">{selectedCountry.code}</span>
-                            {countryOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                        </button>
+                            {countryOpen && (
+                                <div className="absolute bg-white mt-1 rounded-lg border border-[var(--border-muted)] max-h-40 overflow-y-auto w-full z-10 shadow-lg">
+                                    {countries.map((c: any) => (
+                                        <div
+                                            key={c.name}
+                                            onClick={() => {
+                                                setSelectedCountry(c);
+                                                setCountryOpen(false);
+                                            }}
+                                            className="px-3 py-2 hover:bg-gray-100 cursor-pointer flex items-center justify-between"
+                                        >
+                                            <span className="text-[11px] font-medium">{c.name}</span>
+                                            <span className="text-sm font-medium">
+                                                {c.code}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
 
-                        {countryOpen && (
-                            <div className="absolute bg-white mt-1 rounded-lg border border-[var(--border-muted)] max-h-40 overflow-y-auto w-full z-10 shadow-lg">
-                                {countries.map((c) => (
-                                    <div
-                                        key={c.name}
-                                        onClick={() => {
-                                            setSelectedCountry(c);
-                                            setCountryOpen(false);
-                                        }}
-                                        className="px-3 py-2 hover:bg-gray-100 cursor-pointer flex items-center justify-between"
-                                    >
-                                        <span className="text-[11px] font-medium">{c.name}</span>
-                                        <span className="text-sm font-medium">
-                                            {c.code}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+                        <input
+                            placeholder="WhatsApp number"
+                            type="tel"
+                            className="flex-1 p-3 rounded-lg border border-[var(--border-muted)] outline-none focus:border-black"
+                            value={form.whatsapp}
+                            onChange={(e) =>
+                                setForm({ ...form, whatsapp: e.target.value })
+                            }
+                        />
                     </div>
-
-                    <input
-                        placeholder="WhatsApp number"
-                        type="tel"
-                        className="flex-1 p-3 rounded-lg border border-[var(--border-muted)] outline-none focus:border-black"
-                        value={form.whatsapp}
-                        onChange={(e) =>
-                            setForm({ ...form, whatsapp: e.target.value })
-                        }
-                    />
 
                     {
                         verified.whatsapp ? (
-                            <span className="px-4 flex items-center text-green-600 text-sm font-medium">
+                            <div className="flex items-center px-4 py-2 text-green-600 text-sm font-medium">
                                 Verified
-                            </span>
+                            </div>
                         ) : (
                             <button
                                 type="button"
                                 onClick={handleSendWhatsapp}
                                 disabled={loading.whatsapp}
-                                className={`cursor-pointer px-6 bg-[var(--primary)] text-white rounded-lg transition-opacity ${loading.whatsapp ? 'opacity-50' : ''}`}
+                                className={`cursor-pointer w-full sm:w-auto px-4 sm:px-6 py-3 bg-[var(--primary)] text-white rounded-lg transition-opacity ${loading.whatsapp ? 'opacity-50' : ''}`}
                             >
                                 {loading.whatsapp ? "Sending..." : "Verify"}
                             </button>
                         )
                     }
-
                 </div>
                 {showOtp.whatsapp && !verified.whatsapp && (
                     <OtpBoxes 

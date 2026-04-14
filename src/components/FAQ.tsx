@@ -27,7 +27,7 @@ const FAQ: React.FC<FAQProps> = ({ title = "Frequently asked questions", items, 
       <div className="max-w-[1280px] mx-auto">
         <div className="max-w-[800px] mx-auto">
         {title && (
-          <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12 text-center">
+          <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-extrabold tracking-[-0.8px] leading-[1.15] text-black mb-12 text-left md:text-center">
             {title}
           </h2>
         )}

@@ -8,6 +8,7 @@ interface HeroProps {
   title: string;
   description: React.ReactNode;
   image: string;
+  mobileImage?: string;
   ctaText?: string;
   ctaHref?: string;
   variant?: "full" | "split";
@@ -19,6 +20,7 @@ const Hero: React.FC<HeroProps> = ({
   title,
   description,
   image,
+  mobileImage,
   ctaText = "Start for free",
   ctaHref = "#",
   variant = "full",
@@ -73,8 +75,15 @@ const Hero: React.FC<HeroProps> = ({
             <img
               src={image}
               alt={title}
-              className="absolute inset-0 w-full h-full object-cover"
+              className={`absolute inset-0 w-full h-full object-cover ${mobileImage ? "hidden md:block" : ""}`}
             />
+            {mobileImage && (
+              <img
+                src={mobileImage}
+                alt={title}
+                className="absolute inset-0 w-full h-full object-cover block md:hidden"
+              />
+            )}
           </div>
         </div>
       </section>
@@ -86,8 +95,15 @@ const Hero: React.FC<HeroProps> = ({
       <img
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className={`absolute inset-0 w-full h-full object-cover object-center ${mobileImage ? "hidden md:block" : ""}`}
       />
+      {mobileImage && (
+        <img
+          src={mobileImage}
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover object-center block md:hidden"
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-8 pb-16">
         <motion.h1

@@ -38,6 +38,11 @@ const Navbar = () => {
 
   const navLinks = [
     {
+      id: "home",
+      label: "Home",
+      href: "/",
+    },
+    {
       id: "products",
       label: "Products",
       items: [
@@ -81,7 +86,7 @@ const Navbar = () => {
     {
       id: "learning-center",
       label: "Learning Center",
-      href: "#",
+      href: "/learning-center",
     },
   ];
 
@@ -94,16 +99,27 @@ const Navbar = () => {
       >
         <div className="w-full max-w-[1280px] mx-auto px-6 md:px-8 flex items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 text-brand font-extrabold text-2xl tracking-tight no-underline shrink-0">
+          <a
+            href="https://surf.mt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-brand font-extrabold text-2xl tracking-tight no-underline shrink-0 justify-center"
+          >
             <Image
               src="/assets/logo.png"
               alt="Surf Logo"
-              width={32}
-              height={32}
+              width={35}
+              height={35}
               className="object-contain"
             />
-            Surf
-          </Link>
+            <Image
+              src="/assets/surfName.png"
+              alt="Surf Logo"
+              width={70}
+              height={70}
+              className="object-contain"
+            />
+          </a>
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-1 list-none flex-1 justify-center">

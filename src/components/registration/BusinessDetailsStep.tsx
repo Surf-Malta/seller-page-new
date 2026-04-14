@@ -182,11 +182,11 @@ export default function BusinessStep({
             {/* terms and privacy text */}
             <p className="text-xs text-[var(--text-muted)] text-center">
                 By signing up, you agree to our{" "}
-                <Link href="/terms" className="text-[var(--primary)] hover:underline">
+                <Link href="https://surf.mt/terms-and-conditions/?from_app=1&sl=en" target="_blank" className="text-[var(--primary)] hover:underline">
                     Terms
                 </Link>{" "}
                 and{" "}
-                <Link href="/privacy" className="text-[var(--primary)] hover:underline">
+                <Link href="https://surf.mt/privacy-policy/?from_app=1&sl=en" target="_blank" className="text-[var(--primary)] hover:underline">
                     Privacy Policy
                 </Link>.
             </p>

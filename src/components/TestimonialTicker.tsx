@@ -188,7 +188,7 @@ const TestimonialTicker: React.FC<TestimonialTickerProps> = ({ items = defaultIt
             <Link
               key={`${item.caption}-${idx}`}
               href={item.href || "#"}
-              className="group relative flex-shrink-0 w-44 h-44 rounded-2xl overflow-hidden no-underline"
+              className="group relative flex-shrink-0 w-32 h-32 md:w-44 md:h-44 rounded-2xl overflow-hidden no-underline"
             >
               <img
                 src={item.image}

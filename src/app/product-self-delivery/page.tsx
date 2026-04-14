@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { QrCode, Clock, Smartphone, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,9 +12,13 @@ import CardGrid from "@/components/CardGrid";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import SignupModal from "@/components/registration/SignupModal";
+import { motion, useInView } from "framer-motion";
 
 export default function ProductSelfDeliveryPage() {
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const reverse = true; // This section is RTL
 
   return (
     <main className="min-h-screen pt-[72px]">
@@ -23,7 +27,8 @@ export default function ProductSelfDeliveryPage() {
       <Hero
         title="Surf orders. Fulfilled by you."
         description="Use your own delivery team to fulfil Surf orders and set your own delivery rates, offer same day and next day delivery service to your customers."
-        image="/assets/fulfillment.jpg"
+        image="/assets/fulfillment.png"
+        mobileImage="/assets/fulfillmentMobile.png"
         ctaText="Get started"
         onCtaClick={() => setIsSignupModalOpen(true)}
       />
@@ -38,18 +43,23 @@ export default function ProductSelfDeliveryPage() {
       />
 
       {/* HOW IT WORKS — NUMBERED */}
-      <section className="py-8 md:py-20 px-8 bg-grey">
+      <section className="py-8 md:py-20 px-8 bg-grey" ref={ref}>
         <div className="max-w-[1280px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center lg:[direction:rtl]">
-            <div className="[direction:ltr] aspect-[4/3] rounded-[24px] overflow-hidden shadow-xl">
-              <img src="/assets/howFull.png" />
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: reverse ? 40 : -40 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className={`[direction:ltr] relative flex items-center justify-center h-[340px] md:h-[440px]`}
+            >
+              <img src="/assets/howFull.png" className="max-w-full max-h-full w-auto h-auto rounded-[40px] shadow-2xl border border-black/5 block" />
+            </motion.div>
             <div className="[direction:ltr]">
               <Steps
                 title="How does Fulfilment by Seller work?"
                 steps={[
                   { title: "Customer places an order", description: "A customer browses for your product on the Surf app or website and places an order for delivery. You get notified instantly on your Seller Hub app." },
-                  { title: "Accept and prepare", description: "Confirm the order through your Seller Hub app or point-of-sale integration. Pack it, prepare it, and get it ready for dispatch; all managed from one place." },
+                  { title: "Accept and prepare", description: "Confirm the order through your Seller Hub app. Pack it, prepare it, and get it ready for dispatch; all managed from one place." },
                   { title: "Your courier delivers, you collect the fee", description: "Hand the order to your own courier for delivery. The delivery fee you set is collected from the customer at checkout and added directly to your payout." }
                 ]}
               />
@@ -70,7 +80,6 @@ export default function ProductSelfDeliveryPage() {
       {/* HYBRID */}
       <SplitSection
         theme="grey"
-        reverse
         title="Use Surf's logistics partner network when you need it"
         description="With Fulfilment by Seller's hybrid option, Surf's logistics partner network is always on standby, whether an order comes in after your team's delivery hours, during peak demand periods, or outside your usual delivery area. You stay in control, with backup always ready."
         image="/assets/logistics.png"
@@ -88,7 +97,7 @@ export default function ProductSelfDeliveryPage() {
           },
           {
             title: "2. Scan and start delivery",
-            description: "Your courier scans the QR code, sees drop-off details, and taps 'Start Delivery'.",
+            description: "Your courier sees drop off details, and taps 'Start Delivery'.",
             icon: <Clock className="w-7 h-7" />
           },
           {
@@ -98,18 +107,18 @@ export default function ProductSelfDeliveryPage() {
           },
           {
             title: "4. Easy delivery confirmation",
-            description: "Couriers tap 'Mark delivered'. Customer gets confirmation and you get timestamps.",
+            description: "You tap 'Mark delivered'. Customer gets confirmation and you get timestamps.",
             icon: <Check className="w-7 h-7" />
           }
         ]}
       />
 
-      <section className="py-8 md:py-20 px-8 bg-seller-gradient">
+      <section className="py-4 md:py-10 px-4 md:px-8 bg-brand">
         <div className="max-w-[1280px] mx-auto">
-          <div className="p-[56px_48px] flex flex-col md:flex-row items-center justify-between gap-8 group">
+          <div className="p-[20px_20px] md:p-[28px_48px] rounded-[32px] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group">
             <div>
               <h2 className="text-[clamp(1.4rem,2.5vw,2.2rem)] font-extrabold tracking-[-0.6px] text-white max-w-[480px]">
-                Getting started is easy — sign up today
+                Getting started is easy. Sign up today
               </h2>
               <p className="text-[1.05rem] text-white/90 mt-2 leading-[1.5]">
                 Fill in a few details about your business and you'll be live in no time.
@@ -164,7 +173,7 @@ export default function ProductSelfDeliveryPage() {
           },
           {
             question: "How do I deliver my own Surf orders?",
-            answer: "Accept orders through the Seller Hub app or POS, prepare the goods, and dispatch with your own staff. Customers are notified at each step automatically."
+            answer: "Accept orders through the Surf Seller Hub, prepare the orders, and dispatch with your own staff. Customers are notified at each step automatically."
           }
         ]}
       />

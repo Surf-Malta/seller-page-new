@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -7,8 +9,10 @@ import SplitSection from "@/components/SplitSection";
 import FAQ from "@/components/FAQ";
 import Link from "next/link";
 import { Zap, Menu, Server, Check } from "lucide-react";
+import SignupModal from "@/components/registration/SignupModal";
 
 export default function SolutionIntegrationsPage() {
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const partners = [
     "Shopify", "WooCommerce", "Lightspeed", "Square", "Stripe",
     "Magento", "BigCommerce", "Wix Commerce", "Clover", "Revel"
@@ -20,9 +24,10 @@ export default function SolutionIntegrationsPage() {
 
       <Hero
         title="Plug and sell"
-        description="Connect your existing website with Surf in a few clicks and everything comes with it; products, images, descriptions, prices, and stock levels synced instantly. No manual uploads, no starting from scratch, no tech team needed."
+        description="Connect your existing website with Surf in a few clicks and everything comes with it; products, images, descriptions, prices, and stock levels synced instantly."
         image="/assets/plugAndSell.png"
         ctaText="Get started"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       />
 
       {/* 4 FEATURE ICONS */}
@@ -118,6 +123,7 @@ export default function SolutionIntegrationsPage() {
         title="Your platform. Our local shopping App."
         image="/assets/yourPlatform.png"
         ctaText="Start for free"
+        onCtaClick={() => setIsSignupModalOpen(true)}
       >
         <p className="text-lg text-text-2 leading-[1.7]">Already have a store on WooCommerce, Shopify? Our Plug & Sell feature, built with our website partners, gets your products live on Surf's local shopping app in minutes.</p>
         <p className="text-lg text-text-2 leading-[1.7]">Your images, descriptions, prices, and stock levels synced automatically.
@@ -125,11 +131,11 @@ export default function SolutionIntegrationsPage() {
       </SplitSection>
 
       {/* NOT A PARTNER YET */}
-      <section className="py-8 md:py-20 px-8 bg-grey">
+      <section className="py-4 md:py-10 px-4 md:px-8 bg-grey">
         <div className="max-w-[1280px] mx-auto">
-          <div className="bg-grey rounded-[24px] p-[56px_48px] flex flex-col md:flex-row items-center justify-between gap-8 group">
+          <div className="bg-grey rounded-[24px] p-[20px_20px] md:p-[56px_48px] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group">
             <div>
-              <h2 className="text-[clamp(1.4rem,2.5vw,2.2rem)] font-extrabold tracking-[-0.6px] text-black">
+              <h2 className="text-[clamp(1.4rem,2.5vw,2.2rem)] font-extrabold tracking-[-0.6px] text-black text-left md:text-center">
                 Not a Surf seller yet?
               </h2>
               <p className="text-[1.05rem] text-text-2 mt-2 leading-[1.5]">
@@ -138,6 +144,7 @@ export default function SolutionIntegrationsPage() {
             </div>
             <Link
               href="#"
+              onClick={() => setIsSignupModalOpen(true)}
               className="px-[28px] py-[12px] rounded-full border-none bg-brand text-sm font-semibold text-white hover:bg-brand-d transition-all no-underline inline-flex items-center cursor-pointer"
             >
               Get started
@@ -164,6 +171,10 @@ export default function SolutionIntegrationsPage() {
       />
 
       <Footer />
+
+      {isSignupModalOpen && (
+        <SignupModal onClose={() => setIsSignupModalOpen(false)} />
+      )}
     </main>
   );
 }
