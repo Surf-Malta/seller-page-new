@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 const SURF_API_URL = "https://surf.mt/api/2.0/NtOtpRegApi";
-const AUTH_HEADER = process.env.NEXT_PUBLIC_SURF_API_AUTH;
+const AUTH_HEADER = process.env.SURF_API_AUTH || process.env.NEXT_PUBLIC_SURF_API_AUTH;
 
 export async function POST(request: Request) {
     try {
@@ -16,9 +16,9 @@ export async function POST(request: Request) {
         }
 
         if (!AUTH_HEADER) {
-            console.error("SURF_API_AUTH is not configured in settings/env.");
+            console.error("SURF_API_AUTH is not configured in environment variables.");
             return NextResponse.json(
-                { success: false, message: "Server configuration error" },
+                { success: false, message: "Server configuration error: missing API authorization." },
                 { status: 500 }
             );
         }
