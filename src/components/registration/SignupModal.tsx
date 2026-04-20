@@ -8,6 +8,7 @@ import BusinessDetailsStep from "./BusinessDetailsStep";
 import { OtpRegService } from "@/lib/otpRegService";
 import { ref, push, set } from "firebase/database";
 import { realtimeDb } from "@/lib/firebase";
+import { EmailService } from "@/lib/emailService";
 
 export default function SignupModal({ onClose }: { onClose: () => void }) {
     const [step, setStep] = useState<1 | 2>(1);
@@ -119,6 +120,19 @@ export default function SignupModal({ onClose }: { onClose: () => void }) {
             };
 
             await set(newSellerRef, sellerData);
+
+            // Send Email Notification via EmailJS
+            await EmailService.sendRegistrationEmail({
+                firstName: sellerData.firstName,
+                lastName: sellerData.lastName,
+                businessName: sellerData.businessName,
+                email: sellerData.email,
+                whatsapp: sellerData.phoneNumber,
+                country: sellerData.country,
+                categories: sellerData.categories.join(", "),
+                timestamp: new Date().toLocaleString()
+            });
+
             setIsSuccess(true);
 
             // Optional: close modal after delay or show success message
